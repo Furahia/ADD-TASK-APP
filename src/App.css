@@ -1,28 +1,440 @@
-.App {
-  width: 70%;
-  margin: 50px auto;
+.container {
+  content: '';
+  position: absolute;
+  /* background: url("../src/assets/purple.jpg");  */
+  /* background-size: cover; */
+  width: 100%;
+  background-color: #7858A6;
+  background-position: center;
+}
+.container ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  margin-top: 5px;
+  background-color:#7858A6;
+  }
+.container ul li a{
+  text-decoration: none;
+  /* color: black; */
+  }
+
+.container.container-ul-li-a::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--border-size);
+  background-color: var(--accent-color);
+  transition: transform 300ms ease-in-out;
+
+  transform: scaleX(0);
 }
 
-header {
-  background-color: #ebebeb;
+  .container.container-ul-li-a:hover::before,
+  .container.container-ul-li-a:hover::before
+  {
+   transform: scaleX(1);
+  }
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 100px;
+  background: #400D51;
 }
 
-.btn {
-  background-color: #ff9100;
-  padding: 12px 20px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
+nav ul  {
+  display: flex;
+  list-style: none; 
 }
 
-.delete-btn {
-  background-color: red;
+nav ul li {
+  margin-left: 40px;
+}
+
+nav ul li a {
+  text-decoration: none;
   color: #fff;
 }
+nav ul li a:hover{color:black}
 
-.question {
-  background-color: #811111;
-  padding: 20px;
-  margin: 10px 0;
+
+/* /////////////////////////////////////// */
+/* Login */
+.login {
+    width: 20%;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: whitesmoke;
+  padding: 20px 60px;
+  /* height: 70vh; */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.back {
+  background-color: #5d5b8d;
+  height: 100vh;
+  margin-top: 5px;
+}
+.login label{
+  display: block;
+  margin-top: 20px;
+}
+.login h4{
+  color: #5d5b8d;
+  opacity: 1;
+}
+.login button {
+  font-weight: bold;
+  padding: 10px;
   border-radius: 10px;
+  background-color: #7b96ec;
+  cursor: grab;
+  width: 100px;
+}
+ .login button:hover{
+  background-color:rgb(58, 6, 6)
+ }
+.login input{
+width: 150px;
+  border: none;
+  background-color: #EBEBEB;
+  border-bottom: 1px solid #a7bcff;
+  padding: 15px;
+}
+/* ////////////////////////////////////// */
+/* QUESTIONS */
+.Questions{
+  margin: 0 10%;
+
+}
+.Question{
+  background-color: #FF9100;
+}
+.question{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
+.question:hover{
+  background-color:rgb(150, 143, 143)
+}
+
+.Questions input{
+  width: 50%;
+  border-radius: 20px;
+  margin-top: 10px;
+  background-color: #EBEBEB;
+  padding: 10px;
+}
+.Questions button {
+  margin: 10px 10px;
+  padding: 10px;
+  display: flex;
+  border-radius: 10px;
+  background-color: #393053 ;
+  cursor: grab;
+}
+.Questions button:hover{
+  background-color:rgb(58, 6, 6)
+}
+
+.post-question input{
+width: 200px;
+  border-style: none;
+}
+
+.post-question{
+  width: 300px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin: 0 300px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  /* background-color: #FF9100; */
+}
+
+/* ///////////////////////////////////// */
+/* register */
+.formContainer{
+  background-color: #7858A6;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(10, 10, 10);
+}
+.formWrapper{
+  background-color: whitesmoke;
+  padding: 20px 60px;
+  /* height: 70vh; */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register {
+  flex-direction: column;
+  gap: 15px;
+}
+.logo{
+  color: #5d5b8d;
+  font-weight: bold;
+  font-size: 24px;
+}
+.reg{
+  color: #5d5b8d;
+  font-weight: medium;
+  font-size: 20px;
+}
+.register input{
+  width: 250px;
+  border: none;
+  background-color: #EBEBEB;
+  border-bottom: 1px solid #a7bcff;
+  padding: 15px;
+}
+.register button{
+font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #7b96ec;
+  cursor: grab;
+}
+.register h4{
+  color: #5d5b8d;
+  opacity: 2;
+}
+
+/* /////////////////////////////////// */
+/* comments */
+.comment{
+ background-color: #7858A6;
+ padding: 20px 60px;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+/* .comment h4 {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 0;
+} */
+.comment input{
+  width: 50%;
+  border-radius: 20px;
+  background-color: #EBEBEB;
+  padding: 10px;
+}
+
+.comdiv{
+  padding: 2%;
+  /* background-color: #a7bcff; */
+  width: 200%;
+  /* border-radius: 20px; */
+}
+.comment-container{
+  border-radius: 20px;
+background-color:rgb(11, 201, 68);
+}
+.comdiv textarea{
+border-radius: 20px;
+background-color:whitesmoke;
+}
+.comment button{
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #FF9100;
+  cursor: grab;
+}
+/* /////////////////////////////////////////// */
+/* PROFILE
+/* .user{
+  display: flex;
+background-color: black;
+} */
+
+/* .pp{
+  margin-left: 50px;
+}
+.pp input{
+  width: 50%;
+  border-radius: 20px;
+  margin-top: 10px;
+  background-color: #EBEBEB;
+  padding: 10px;
+} */
+/* .pp h3{
+  padding: 10px;
+  background-color: #D5B4B4;
+  display: flex;
+  justify-content: center;
+} */
+
+.ProfilePage{
+  background-color:#7858A6 ;
+}
+.h3 {
+  display: flex;
+ padding: 10px;
+}
+
+.profile-card {
+  width: 200px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin: 0 300px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.profile-image {
+  margin-right: 50px;
+}
+.profile-image h6{
+ 
+text-decoration: dashed;
+}
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-details h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.profile-details p {
+  font-size: 18px;
+margin: 5px 0;
+}
+
+
+/* ////////////////////////////// */
+/* HOME */
+
+.home{
+  background: url("./assets/lion.jpg");
+  height: 100vh;
+  background-size: cover;
+  color: whitesmoke;
+  background-repeat: no-repeat;
+  list-style: none;
+ 
+ 
+}
+.home header h1{
+  display: flex;
+  justify-content: center;
+  font-style: initial;
+  font-weight: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.home header P{
+  display: flex;
+  justify-content: center;
+  font-style: initial;
+  font-weight: 100%;
+}
+.action-buttons {
+ display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: whitesmoke;
+  text-decoration: none;
+}
+.action-buttons a{
+  color: whitesmoke;
+  text-decoration: none;
+}
+.action-buttons-ul-li-a::before{
+  
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--border-size);
+  background-color:  #FF9100(--accent-color);
+  transition: transform 300ms ease-in-out;
+
+  transform: scaleX(0);
+}
+
+.action-buttons-ul-li-a:hover::before,
+.action-buttons-ul-li-a:hover::before
+{
+ transform: scaleX(1);
+}
+.container h2{
+  color: white;
+  margin-top: 50px;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home h4{
+  color: white;
+  display: flex;
+ align-items: center;
+  justify-content: center;
+}
+
+.home button {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #FF9100;
+  cursor: grab;
+  margin-left: 400px;
+}
+.featured-questions{
+  color: whitesmoke;
+  list-style: none;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  margin: auto 300px;
+  padding: 50px;
+  background-color: #191825;
+  opacity: 0.5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  
+}
+.featured-questions{
+  color: whitesmoke;
+}
+.featured-questions a{
+  color: whitesmoke;
+  list-style: none;
+  /* background-color: #FF9100; */
 }

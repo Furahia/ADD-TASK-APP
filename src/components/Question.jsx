@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { db } from "../components/config"
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { arrayUnion, doc, setDoc } from "firebase/firestore";
+import { increment, arrayUnion, doc, setDoc } from "firebase/firestore";
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchQuestion } from '../actions/questionActions';
 
@@ -32,14 +31,25 @@ function Question() {
       console.log(id);
   
       const questionRef = doc(db, 'questions', id);
-      setDoc(questionRef, { answers: arrayUnion({id: new Date().getTime().toString(), answer, comments: []}) }, { merge: true });
+      setDoc(questionRef, { answers: arrayUnion({id: new Date().getTime().toString(), answer, comments: []}),
+     }, 
+      { merge: true }
+      );
     }
   
     // Add comment
-    function handleSetComment(e) {
+    async function handleSetComment(e) {
       e.preventDefault();
-  
-      console.log(comment)
+   console.log(comment)
+    }
+    async function upVote() {
+      const questionRef = doc(db, 'questions', id);
+      await setDoc(questionRef, { upvotes: increment(1)}, { merge: true });
+    }
+    
+    async function downVote() {
+      const questionRef = doc(db, 'questions', id);
+      await setDoc(questionRef, { downvotes: increment(1)}, { merge: true });
     }
 
 
@@ -50,10 +60,24 @@ return (
         : 
         <>
             <h1>{question.title}</h1>
+            <form onSubmit={event => answerQuestion(event)}>
+          <input type="text" onChange={(e) => setAnswer(e.target.value)}/>
+          <button type="submit" onClick={answerQuestion}>Answer this Question</button>
+        </form>
+        <div className="ans-votes">
+                <div className="upvotes">
+                  <button type="button" onClick={upVote} className="vote up"><i class="fa-solid fa-thumbs-up"></i> <span>{question.upvotes}</span></button>
+                </div>
+                <div className="downvotes">
+                  <button type="button" onClick={downVote} className="vote down"><i class="fa-solid fa-thumbs-down"></i> <span>{question.downvotes}</span></button>
+                </div>                          
+              </div>
+        
             {question.answers && question.answers.map(function(answer) {
+              console.log(question.answers)
                 return (
                     <div className='answer'>
-                        <p>{answer}</p>
+                        <p>{answer.answer}</p>
                         <form action="" onSubmit={e => handleSetComment(e)}>
                           <input type="text" onChange={e => setComment(e.target.value)}/>
                           <button type="button" className="vote up"><i class="fa-solid fa-thumbs-up"></i></button>
@@ -65,10 +89,7 @@ return (
             })}
         </>
         }
-<form onSubmit={event => answerQuestion(event)}>
-          <input type="text" onChange={(e) => setAnswer(e.target.value)}/>
-          <button type="submit" onClick={answerQuestion}>Answer this Question</button>
-        </form>
+
             </div>
   )
 }

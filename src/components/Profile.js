@@ -25,46 +25,42 @@ function Profile() {
   return (
   
     <div className="ProfilePage">
-      <div className='h3'><h3>Profile Page</h3></div>
+      {/* <div className='h3'><h3>Profile Page</h3></div>
       <div className="profile-left">
             <img src={loggedInUser.providerData[0].photoURL} alt="" />
             <br />
             <h3>{loggedInUser.providerData[0].displayName}</h3>
             <p><strong>{loggedInUser.providerData[0].email}</strong></p>
-        </div>
+        </div> */}
 
-      {/* <div className="profile-card"> */}
+       <div className="profile-card"> 
        
        
-        {/* <span>
+        <span>
           <div className="profile-image">
           <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Profile Avatar" />
           <h2> Hope Guest</h2>
+          <h3>{loggedInUser.providerData[0].displayName}</h3>
+            <p><strong>{loggedInUser.providerData[0].email}</strong></p>
           <h2> About Me</h2>
           <h4>Hi, i'm Hope Guest.. I have a huge passion for web-development an programming. I love to learn and thrive from challenges</h4>
-          <h6>PHP</h6>
-          <h6>HTML</h6>
-          <h6>CSS</h6>
-          <h6>JAVASCRIPT</h6>
-          <h6>JQUERY</h6>
-          <h6>C#</h6>
           <p>Email: hope.guest@example.com</p>
           <p>Username: hopeguestt123</p>
           <p>Location: Nairobi, KENYA</p>
           </div>
-        </span> */}
+        </span> 
         
-      {/* </div> */}
-      <div className="profile-right">
-            <div className="stats">
-                <h6>10</h6>
-                <p>Questions asked</p>
-            </div>
-            <div className="stats">
-                <h6>20</h6>
-                <p>Questions answered</p>
-            </div>
-        </div>
+       </div>
+      {/* <div className="profile-right">
+             <div className="stats">
+                 <h6>10</h6>
+                 <p>Questions asked</p>
+             </div>
+             <div className="stats">
+                 <h6>20</h6>
+                 <p>Questions answered</p>
+             </div>
+       </div> */}
     </div>
      );
 }

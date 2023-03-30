@@ -438,3 +438,29 @@ margin: 5px 0;
   list-style: none;
   /* background-color: #FF9100; */
 }
+
+/*   BUTTONS */
+.answer{
+  color: white;
+  list-style: none;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 50px;
+  background-color: #191825;
+  opacity: 0.5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+}
+
+.answer button{
+  color: black;
+}
+.vote {
+  margin-right: 10px;
+}
+
+.vote.down {
+  background-color: red;
+}

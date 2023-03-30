@@ -41,7 +41,7 @@ function Register() {
   createUserWithEmailAndPassword(auth, user.email, user.password)
     .then((userCredential) => {
       // Signed in 
-      const user = userCredential.user;
+      const newUser = userCredential.user;
       // ...
       console.log(user);
 

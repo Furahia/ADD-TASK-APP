@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import PostQuestion from './PostQuestion'
 import { Link } from 'react-router-dom';
 import { db } from "./config"
-import { doc,deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchQuestions } from '../actions/questionActions';
 
@@ -28,8 +28,9 @@ console.log(questions)
     // Handle deleting a question
     async function handleDelete(question) {
         let loggedInUser = JSON.parse(sessionStorage.getItem("user")).uid;
+        console.log(question);
 
-        let id = question.question.id;
+        let id =    question.question.id;
 
         let user = question.question.data.user
         console.log(user, loggedInUser)
@@ -53,7 +54,7 @@ return (
                   <h3>{question.data.title}</h3>
                   <Link to={"/question/" + question.id}>View More</Link>
                   <br/>
-                  <button onClick={() => handleDelete(question.id)}>Delete</button>
+                  <button onClick={() => handleDelete(question)}>Delete</button>
                   {/* <button onClick={() => handleSubmit(question.id)}>Submit</button> */}
               </div>
           )
